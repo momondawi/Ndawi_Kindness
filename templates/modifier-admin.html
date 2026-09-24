@@ -1,0 +1,68 @@
+{% extends 'base-admin.html' %}
+{% block title %}
+    Modification Administrateur
+{% endblock %}
+
+{% block content %}
+    <section id="updateadmin" class="container-fluid pt-5">
+        {% if message_erreur %}
+            <div class="alert alert-danger" role="alert">
+                {{ message_erreur }}
+            </div>
+        {% endif %}
+
+        <h1 class="text-center">Modification de l'administrateur</h1>
+        <div id="updateadmin-form">
+            <form action="{{ url_for('modifier_administrateur', administrateur_id=administrateur.id) }}" method="POST">
+                <div class="row mb-3">
+                        <span id="formHelpInline" class="form-text">
+                            Le nom, le prénom et le courriel ne doivent pas dépasser 25 caractères.<br>
+                            Le courriel doit être valide.<br>
+                            Le mot de passe doit contenir:<br>
+                            &nbsp; &nbsp; &bull; Au moins 8 caractères,<br>
+                            &nbsp; &nbsp; &bull; Au moins une lettre majuscule,<br>
+                            &nbsp; &nbsp; &bull; Au moins un chiffre,<br>
+                            &nbsp; &nbsp; &bull; Au moins un de ces caractères spéciaux : #$%&'*+/=?@
+                        </span>
+                </div>
+                <div class="row mb-3">
+                    <label for="nomadmin" class="col-sm-4 col-form-label">Nom</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="nomadmin" class="form-control" id="nomadmin" value="{{ administrateur.nom }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="prenomadmin" class="col-sm-4 col-form-label">Prénom</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="prenomadmin" class="form-control" id="prenomadmin" value="{{ administrateur.prenom }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="emailadmin" class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                        <input type="email" name="emailadmin" class="form-control" id="emailadmin" value="{{ administrateur.courriel }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="motdepasseadmin" class="col-sm-4 col-form-label">Mot de passe</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="motdepasseadmin" class="form-control" id="motdepasseadmin">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="motdepasseconfirmer" class="col-sm-4 col-form-label">Confirmer mot de passe</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="motdepasseconfirmer" class="form-control" id="motdepasseconfirmer">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <input type="submit" class="btn btn-success" value="Modifier">
+                        <a href="{{ url_for('admin_system') }}" class="btn btn-danger">Annuler</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

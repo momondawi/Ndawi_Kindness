@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Ndawi_kindness
+{% endblock %}
+
+{% block content %}
+    <section id="home" class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center d-flex flex-column justify-content-center">
+                <h1>Bienvenue</h1>
+                <p class="lead ms-5 me-5">
+                    Nous sommes une organisation à but non lucratif créée au Sénégal,
+                    dédiée à apporter aide et soutien aux communautés vulnérables en Afrique et à travers le monde.
+                    Que ce soit à travers des dons, des missions humanitaires ou des programmes de soutien,
+                    nous croyons en la puissance de la générosité pour transformer des vies.
+                    Ensemble, nous bâtissons un avenir plus solidaire.
+                </p>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-outline-secondary" id="candidatbtn" href="{{ url_for('afficher_formulaire_candidat') }}">Devenir bénévole</a>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-0">
+                <img src="{{ url_for('static', filename='images/logo-color2.png') }}" alt="Logo" class="logo-image">
+            </div>
+        </div>
+    </section>
+{% endblock %}

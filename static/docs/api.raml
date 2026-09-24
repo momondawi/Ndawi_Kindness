@@ -1,0 +1,178 @@
+#%RAML 1.0
+title: API Ndawi Kindness
+version: v3
+baseUri: /api
+mediaType: application/json
+
+/api/candidat:
+  post:
+    description: Ajoute un nouveau candidat.
+    body:
+      application/json:
+        type: object
+        properties:
+          nom: string
+          prenom: string
+          courriel: string
+          benevole: integer
+          adresse: string
+          telephone: string
+        required:
+          - nom
+          - prenom
+          - courriel
+          - benevole
+          - adresse
+          - telephone
+        example: |
+          {
+            "nom": "Dupont",
+            "prenom": "Jean",
+            "courriel": "jean.dupont@example.com",
+            "benevole": 0,
+            "adresse": "123 rue Exemple",
+            "telephone": "0123456789"
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Candidat créé avec succès!"
+              }
+
+/api/candidats:
+  get:
+    description: Retourne la liste de tous les candidats.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": 1,
+                  "nom": "Dupont",
+                  "prenom": "Jean",
+                  "courriel": "jean.dupont@example.com",
+                  "benevole": 0,
+                  "adresse": "123 rue Exemple",
+                  "telephone": "0123456789"
+                }
+              ]
+
+/api/benevoles:
+  get:
+    description: Retourne la liste de tous les bénévoles.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": 2,
+                  "nom": "Doe",
+                  "prenom": "Jane",
+                  "courriel": "jane.doe@example.com",
+                  "benevole": 1,
+                  "adresse": "456 rue Exemple",
+                  "telephone": "0987654321"
+                }
+              ]
+
+/api/candidat/{id}:
+  uriParameters:
+    id:
+      type: integer
+      description: ID du candidat.
+  get:
+    description: Retourne les détails d'un candidat spécifique.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "id": 1,
+                "nom": "Dupont",
+                "prenom": "Jean",
+                "courriel": "jean.dupont@example.com",
+                "benevole": 0,
+                "adresse": "123 rue Exemple",
+                "telephone": "0123456789"
+              }
+  put:
+    description: Modifie un candidat existant.
+    body:
+      application/json:
+        type: object
+        properties:
+          nom: string
+          prenom: string
+          courriel: string
+          benevole: integer
+          adresse: string
+          telephone: string
+        example: |
+          {
+            "nom": "Dupont",
+            "prenom": "Jean",
+            "courriel": "jean.dupont@example.com",
+            "benevole": 1,
+            "adresse": "456 rue Exemple",
+            "telephone": "0123456789"
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Candidat modifié avec succès!"
+              }
+  delete:
+    description: Supprime un candidat.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "message": "Candidat supprimé avec succès!"
+              }
+      404:
+        body:
+          application/json:
+            example: |
+              {
+                "error": "Candidat introuvable"
+              }
+
+/api/recherche:
+  get:
+    description: Recherche des bénévoles en fonction de leur nom et/ou prénom.
+    queryParameters:
+      nom:
+        type: string
+        description: Nom du bénévole (optionnel).
+      prenom:
+        type: string
+        description: Prénom du bénévole (optionnel).
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": 1,
+                  "nom": "Dupont",
+                  "prenom": "Jean",
+                  "courriel": "jean.dupont@example.com",
+                  "benevole": 1,
+                  "adresse": "123 rue Exemple",
+                  "telephone": "0123456789"
+                }
+              ]

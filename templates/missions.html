@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}
+    Missions
+{% endblock %}
+
+{% block content %}
+    <section id="missions" class="container-fluid py-5">
+        <div class="row">
+            <h1 class="text-center mb-5">Nos Missions</h1>
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="mission-list">
+                    <li class="mission-item">
+                        <div class="mission-icon">
+                            <img src="{{ url_for('static', filename='icons/well.png') }}" alt="Icone eau">
+                        </div>
+                        <div class="mission-content">
+                            <h2>Mission 1 : Construction de puits au Sénégal</h2>
+                            <p>
+                                Dans les régions rurales du Sénégal, l'accès à l'eau potable reste un défi majeur pour de nombreuses communautés.
+                                Cette mission vise à construire et réhabiliter des puits pour fournir de l'eau propre et potable à des villages entiers.
+                                Grâce à nos partenaires locaux et à des équipes d'experts, nous avons pu creuser des puits dans des zones reculées,
+                                réduisant ainsi les maladies liées à l'eau et améliorant la qualité de vie des habitants.
+                            </p>
+                            <ol>
+                                <li>Partenaires: Olympique Lyonnais, FC Barcelone, Arsenal FC</li>
+                                <li>Bénéficiaires: 150 villages</li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="mission-item">
+                        <div class="mission-icon">
+                            <img src="{{ url_for('static', filename='icons/school.png') }}" alt="Icone école">
+                        </div>
+                        <div class="mission-content">
+                            <h2>Mission 2 : Distribution de fournitures scolaires au Mali</h2>
+                            <p>
+                                L'éducation est un droit fondamental, mais de nombreux enfants dans les régions défavorisées du Mali n'ont pas accès aux
+                                fournitures scolaires de base. Notre mission consiste à distribuer des cahiers, des stylos, des uniformes et d'autres matériels
+                                indispensables afin de permettre à ces enfants d'étudier dans de meilleures conditions. Nous travaillons avec des écoles locales
+                                et des associations pour identifier les zones prioritaires et assurer une répartition équitable des ressources.
+                            </p>
+                            <ol>
+                                <li>Partenaires: Olympique Lyonnais, FC Barcelone, Gouvernement Malien</li>
+                                <li>Bénéficiaires: 2500 élèves</li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="mission-item">
+                        <div class="mission-icon">
+                            <img src="{{ url_for('static', filename='icons/care.png') }}" alt="Icone soins">
+                        </div>
+                        <div class="mission-content">
+                            <h2>Mission 3 : Soins médicaux en Palestine</h2>
+                            <p>
+                                En Palestine, notre organisation a déployé des équipes médicales pour venir en aide aux populations touchées par les conflits,
+                                en fournissant des soins de première nécessité et des médicaments vitaux.
+                            </p>
+                            <ol>
+                                <li>Partenaires: État du Sénégal</li>
+                                <li>Bénéficiaires: 10000 personnes</li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="mission-item">
+                        <div class="mission-icon">
+                            <img src="{{ url_for('static', filename='icons/housing.png') }}" alt="Icone logement">
+                        </div>
+                        <div class="mission-content">
+                            <h2>Mission 4 : Assistance aux réfugiés au Liban</h2>
+                            <p>
+                                Au Liban, nous intervenons auprès des réfugiés en leur offrant un soutien alimentaire et médical, ainsi que des programmes de
+                                réinsertion sociale et professionnelle.
+                            </p>
+                            <ol>
+                                <li>Partenaires: Union Africaine</li>
+                                <li>Bénéficiaires: 2000 réfugiés</li>
+                            </ol>
+                        </div>
+                    </li>
+                    <li class="mission-item">
+                        <div class="mission-icon">
+                            <img src="{{ url_for('static', filename='icons/food.png') }}" alt="Icone alimentation">
+                        </div>
+                        <div class="mission-content">
+                            <h2>Mission 5 : Assistance alimentaire au Niger</h2>
+                            <p>
+                                Le Niger est fréquemment touché par des crises alimentaires, exacerbées par les conditions climatiques et les conflits locaux.
+                                Nous organisons des distributions régulières de vivres dans les régions les plus touchées, ciblant particulièrement les enfants
+                                et les familles vulnérables. Grâce à la collaboration avec des ONG locales et des organismes internationaux, nous avons pu fournir
+                                des tonnes de nourriture et de produits essentiels pour alléger les souffrances des communautés en période de crise.
+                            </p>
+                            <ol>
+                                <li>Partenaires: Olympique Lyonnais, FC Barcelone</li>
+                                <li>Bénéficiaires: 25000 habitants</li>
+                            </ol>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}

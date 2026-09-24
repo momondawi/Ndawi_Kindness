@@ -1,0 +1,15 @@
+{% extends 'base-admin.html' %}
+{% block title %}
+    Validation
+{% endblock %}
+
+{% block content %}
+    <section id="success" class="container-fluid pt-5">
+        <div class="row">
+            <div class="col">
+                <span>Un mail de confirmation a bien été envoyé.</span>
+                <a href="{{ url_for('admin_system') }}" class="btn btn-primary">Liste admins</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

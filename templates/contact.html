@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block content %}
+    <section id="contact" class="container-fluid pt-5">
+        {% if erreur %}
+            <div class="alert alert-danger" role="alert">
+                {{ erreur }}
+            </div>
+        {% elif succes %}
+            <div class="alert alert-success" role="success">
+                {{ succes }}
+            </div>
+        {% endif %}
+        <h1 class="text-center">Contact</h1>
+        <div id="contact-form">
+            <form action="{{ url_for('contact') }}" method="POST">
+                <div class="row mb-3">
+                    <label for="raison" class="col-sm-4 col-form-label">Raison de votre envoi</label>
+                    <div class="col-sm-8">
+                        <select id="raison" name="raison" class="form-select">
+                            <option selected>Faire un don</option>
+                            <option>S'engager comme bénévole</option>
+                            <option>Participer à des missions spécifiques</option>
+                            <option>Trouver du soutien pour des proches ou une communauté</option>
+                            <option>S'informer sur les activités et les projets en cours</option>
+                            <option>Poser des questions sur la transparence financière</option>
+                            <option>Proposer des idées ou initier de nouveaux projets</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="email" class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                        <input type="email" name="email" class="form-control" id="email" value="{{ email }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="message" class="col-sm-4 col-form-label">Votre message</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" name="message" id="message" rows="4">{{ message }}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8">
+                        <input type="submit" class="btn btn-primary" value="Envoyer">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

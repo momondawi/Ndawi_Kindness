@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <title>
+            {% block title %}
+                Ndawi Kindness
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img id="logo" src="{{ url_for('static', filename='images/logo-color.png') }}" alt="logo" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/home">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/a-propos">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/missions">Missions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+
+        <footer class="bg-dark text-white mt-auto">
+            <div class="container py-4">
+                <div class="row justify-content-between">
+                    <div class="col-md-3">
+                        <h5>Contact</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-geo-alt"></i> Dakar, Sénégal</li>
+                            <li><i class="bi bi-telephone"></i> +221 33 123 45 67</li>
+                            <li><i class="bi bi-envelope"></i> <a href="mailto:contact@ndawiskindness.org" class="text-white">contact@ndawiskindness.org</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <h5>Navigation</h5>
+                        <ul class="liens list-unstyled">
+                            <li><i class="bi bi-chevron-right"></i><a href="/" class="text-white">Accueil</a></li>
+                            <li><i class="bi bi-chevron-right"></i><a href="/a-propos" class="text-white">À propos</a></li>
+                            <li><i class="bi bi-chevron-right"></i><a href="/services" class="text-white">Services</a></li>
+                            <li><i class="bi bi-chevron-right"></i><a href="/missions" class="text-white">Missions</a></li>
+                            <li><i class="bi bi-chevron-right"></i><a href="/contact" class="text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>À propos</h5>
+                        <p>Ndawi's Kindness est une organisation fondée au Sénégal en 2022, animée par le désir d’apporter une lueur d’espoir aux communautés les plus vulnérables.</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5>Suivez-nous</h5>
+                        <a href="https://facebook.com" class="me-2"><img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                        <a href="https://twitter.com" class="me-2"><img src="{{ url_for('static', filename='images/twitterx.png') }}" alt="Twitter"></a>
+                        <a href="https://linkedin.com" class="me-2"><img src="{{ url_for('static', filename='images/linkedin.png') }}" alt="LinkedIn"></a>
+                        <a href="https://instagram.com"><img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-4">
+                    <div class="col text-center">
+                        <p class="mb-0">© 2024 Ndawi's Kindness. Tous droits réservés.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </body>
+</html>

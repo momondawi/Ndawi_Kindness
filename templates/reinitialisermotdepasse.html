@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    Réinit Mot de passe
+{% endblock %}
+
+{% block content %}
+    <section id="reinit" class="container-fluid pt-5">
+        {% if message_erreur %}
+            <div class="alert alert-danger" role="alert">
+                {{ message_erreur }}
+            </div>
+        {% endif %}
+
+        <h1 class="text-center">Mot de passe</h1>
+        <div id="reinit-form">
+            <form action="{{ url_for('reinitialisermotdepasse', token=utilisateur.reset_token) }}" method="POST">
+                <div class="row mb-3">
+                    <label for="motdepasseoublie" class="col-sm-4 col-form-label">Mot de passe</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="motdepasseoublie" class="form-control" id="motdepasseoublie">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="motdepasseconfirmed" class="col-sm-4 col-form-label">Confirmer mot de passe</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="motdepasseconfirmed" class="form-control" id="motdepasseconfirmed">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-8 d-flex justify-content-end">
+                        <a href="{{ url_for('administration') }}" class="btn btn-danger me-2">Annuler</a>
+                        <input type="submit" class="btn btn-primary" value="Continuer">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

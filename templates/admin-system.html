@@ -1,0 +1,58 @@
+{% extends 'base-admin.html' %}
+{% block title %}
+    Liste Administrateurs
+{% endblock %}
+
+{% block content %}
+    <section id="administrateurlist" class="pt-5 pb-4">
+        <div class="container">
+            <h1 class="text-center">Liste des administrateurs</h1>
+            <a href="{{ url_for('ajouter_administrateur') }}" class="btn btn-primary">
+                <i class="bi bi-plus"></i>
+                Ajouter
+            </a>
+            <div class="table-responsive w-100 mt-3">
+                <table class="table table-bordered table-striped shadow w-100">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Courriel</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for administrateur in administrateurs %}
+                            <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ administrateur.nom }}</td>
+                                <td>{{ administrateur.prenom }}</td>
+                                <td>{{ administrateur.courriel }}</td>
+
+                                {% if administrateur.id == 1 %}
+                                    <td>
+                                        <a class="btn btn-success btn-sm" hidden="hidden">Modifier</a>
+                                        <a class="btn btn-danger btn-sm" hidden="hidden">Supprimer</a>
+                                    </td>
+                                {% elif administrateur.suspension == 0 %}
+                                    <td>
+                                        <a href="{{ url_for('modifier_administrateur', administrateur_id=administrateur.id) }}" class="btn btn-success btn-sm">Modifier</a>
+                                        <a href="{{ url_for('supprimer_administrateur', administrateur_id=administrateur.id) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                                        <a href="{{ url_for('suspendre_administrateur', administrateur_id=administrateur.id) }}" class="btn btn-warning btn-sm">Suspendre</a>
+                                    </td>
+                                {% elif administrateur.suspension == 1 %}
+                                    <td>
+                                        <a href="{{ url_for('modifier_administrateur', administrateur_id=administrateur.id) }}" class="btn btn-success btn-sm">Modifier</a>
+                                        <a href="{{ url_for('supprimer_administrateur', administrateur_id=administrateur.id) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                                        <a href="{{ url_for('annuler_suspension', administrateur_id=administrateur.id) }}" class="btn btn-warning btn-sm">Annuler Suspension</a>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}

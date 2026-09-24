@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    Success Mot de passe
+{% endblock %}
+
+{% block content %}
+    <section id="failed" class="container-fluid pt-5">
+          <div class="row">
+                <div class="col">
+                      <span>Votre mot de passe a été réinitialisé</span>
+                      <a href="{{ url_for('administration') }}" class="btn btn-primary">Connectez-vous</a>
+                </div>
+          </div>
+    </section>
+{% endblock %}

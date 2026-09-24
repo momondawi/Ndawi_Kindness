@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+    Services
+{% endblock %}
+
+{% block content %}
+    <section id="services" class="container-fluid pt-5">
+        <h1 class="text-center mb-4">Nos Services</h1>
+        <div class="carousel-container pb-3">
+            <ul class="carousel-list d-flex">
+                <li class=" card-li me-3">
+                    <img src="{{ url_for('static', filename='images/dons.jpg') }}" alt="Distribution de dons">
+                    <h2>Distribution de dons</h2>
+                    <p>Grâce à nos campagnes de collecte, nous rassemblons des vivres, des vêtements, des produits de première nécessité,
+                        et des fournitures médicales que nous distribuons aux familles et individus dans le besoin. Chaque don, petit ou grand,
+                        est un pas vers la sécurité et la dignité.
+                    </p>
+                </li>
+                <li class="card-li me-3">
+                    <img src="{{ url_for('static', filename='images/education.jpg') }}" alt="Soutien education">
+                    <h2>Soutien éducatif</h2>
+                    <p>Nous croyons que l’éducation est l’un des piliers du développement. C’est pourquoi nous mettons en place des programmes pour
+                        offrir du matériel scolaire, distribuer des livres, et faciliter l’accès à des bourses. En soutenant l’éducation, nous permettons
+                        aux enfants de construire un avenir meilleur et de rompre le cycle de la pauvreté.
+                    </p>
+                </li>
+                <li class="card-li me-3">
+                    <img src="{{ url_for('static', filename='images/devdurable.jpg') }}" alt="Développement durable">
+                    <h2>Programmes de développement durable</h2>
+                    <p>Nous encourageons les initiatives locales en proposant des formations professionnelles et en accompagnant la création de petites entreprises.
+                        Ces projets visent à autonomiser les populations, en leur offrant des opportunités économiques pour qu’elles puissent subvenir à leurs besoins
+                        de manière durable.
+                    </p>
+                </li>
+                <li class="card-li me-3">
+                    <img src="{{ url_for('static', filename='images/missions.jpg') }}" alt="Missions humanitaires">
+                    <h2>Missions humanitaires</h2>
+                    <p>Face aux crises humanitaires et aux catastrophes naturelles, notre équipe se mobilise rapidement pour fournir une aide d’urgence. Nous apportons
+                        de l’assistance sur le terrain, en distribuant des kits de survie, en facilitant l’accès aux soins et en aidant les communautés à se relever
+                        après des situations difficiles.
+                    </p>
+                </li>
+                <li class="card-li me-3">
+                    <img src="{{ url_for('static', filename='images/sensibilisation.jpg') }}" alt="Sensibilisation et plaidoyer">
+                    <h2>Sensibilisation et plaidoyer</h2>
+                    <p>Au-delà de l’aide matérielle, nous nous engageons à sensibiliser le public aux défis auxquels font face les populations vulnérables.
+                        Nous organisons des campagnes pour promouvoir les droits humains, la justice sociale, et l’égalité des chances, dans l’espoir de créer
+                        une prise de conscience et un changement durable.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}

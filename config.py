@@ -1,0 +1,7 @@
+MAIL_SERVER = 'localhost'
+MAIL_PORT = 1025
+MAIL_USE_TLS = False
+MAIL_USE_SSL = False
+MAIL_USERNAME = None
+MAIL_PASSWORD = None
+MAIL_DEFAULT_SENDER = 'mohamedndao90@gmail.com'
